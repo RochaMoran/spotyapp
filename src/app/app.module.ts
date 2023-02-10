@@ -13,6 +13,7 @@ import { ROUTES } from './app.routes';
 import { NoimagePipe } from './pipes/noimage.pipe';
 import { CardsComponent } from './components/cards/cards.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { DomseguroPipe } from './pipes/domseguro.pipe';
 
 //Services
 
@@ -26,6 +27,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     NoimagePipe,
     CardsComponent,
     LoadingComponent,
+    DomseguroPipe,
   ],
   imports: [
     BrowserModule,

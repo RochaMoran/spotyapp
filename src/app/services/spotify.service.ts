@@ -17,7 +17,7 @@ export class SpotifyService {
 
     const headers = new HttpHeaders({
       Authorization:
-        'Bearer BQAfQ2hXFgw_N16EJE4JejcrNv8ZXHoCkrGx5Oy6Ybkxb-ic5zL-WWyCS1fOl7GXjvF7HHTi0llSWbB50iRUcM9ooSzOt4Zrzqqlf4krEH_DugTiPsy6',
+        'Bearer BQAqlfOCoCv20lpTt5OOeogN-UHoR63FMCLACpVg6K2sw3FE08JWS0wsh7Bcn9HSWZuHCtXGw-iN0f-qZDf8Mw_kGtNjHSoW0MStkDc9oXyep7ndtiFx',
     });
 
     return this.http.get(url, { headers });
@@ -43,5 +43,15 @@ export class SpotifyService {
     return this.getQuery(`artists/${id}/top-tracks?country=us`).pipe(
       map((data: any) => data['tracks'])
     );
+  }
+
+  updateToken() {
+    return this.http
+      .get(
+        'https://spotify-get-token.herokuapp.com/spotify/d6b55734aa3f4b49af89ae8023b6c69e/4659ca881ead4eed81c45197f071db34'
+      )
+      .subscribe((data: any) => {
+        console.log(data);
+      });
   }
 }

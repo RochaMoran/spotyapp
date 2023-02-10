@@ -8,12 +8,24 @@ import { Component } from '@angular/core';
 export class HomeComponent {
   musics: any[] = [];
   loading: boolean;
+  error: boolean;
+  errorMessage: string;
 
   constructor(private spotify: SpotifyService) {
     this.loading = true;
-    this.spotify.getNewReleases().subscribe((data: any) => {
-      this.musics = data;
-      this.loading = false;
-    });
+    this.error = false;
+    this.errorMessage = '';
+
+    this.spotify.getNewReleases().subscribe(
+      (data: any) => {
+        this.musics = data;
+        this.loading = false;
+      },
+      (errorService) => {
+        this.loading = false;
+        this.error = true;
+        this.errorMessage = errorService.error.error.message;
+      }
+    );
   }
 }
