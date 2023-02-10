@@ -1,7 +1,11 @@
 <div
   class="row row-cols-1 row-cols-md-4 g-4 gap-2 justify-content-center pt-3 pb-3"
 >
-  <div *ngFor="let item of items" class="col card">
+  <div
+    *ngFor="let item of items"
+    class="col card puntero"
+    (click)="redirectCard(item)"
+  >
     <img [src]="item.images | noimage" class="card-img-top" [alt]="item.name" />
     <div class="card-body">
       <h5 class="card-title">{{ item.name }}</h5>
